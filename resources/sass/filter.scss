@@ -1,0 +1,28 @@
+@import "~font-awesome/scss/font-awesome";
+
+.date-range-filter .input-wrapper {
+  $reset-button-width: 2rem !default;
+
+  position: relative;
+
+  .flatpickr-input {
+    padding-right: $reset-button-width;
+  }
+
+  .reset-button {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    width: $reset-button-width;
+    opacity: 0;
+    transition: opacity 0.4s;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &:hover .reset-button {
+    opacity: 1;
+  }
+}
