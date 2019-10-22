@@ -75,4 +75,9 @@ class DateRangeFilter extends Filter
     {
         return [];
     }
+
+    public function key(): string
+    {
+        return 'date_range_' . $this->column;
+    }
 }
