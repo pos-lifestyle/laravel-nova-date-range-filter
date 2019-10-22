@@ -78,6 +78,6 @@ class DateRangeFilter extends Filter
 
     public function key(): string
     {
-        return 'date_range_' . $this->column;
+        return parent::key() . '_' . $this->column;
     }
 }
