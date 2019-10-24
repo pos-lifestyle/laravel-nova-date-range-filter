@@ -107,7 +107,7 @@
             },
 
             allowInput: function () {
-                return this.filter.allowInput !== undefined ? this.filter.allowInput : true;
+                return this.filter.allowInput !== undefined ? this.filter.allowInput : false;
             },
 
             dateFormat: function () {
@@ -123,18 +123,12 @@
             },
 
             locale: function () {
-                if (!this.filter.locale) {
-                    return 'default';
-                }
-
-                const locale = this.filter.locale.split('-')[0];
-
                 // There is no english language file.
-                if (locale === 'en') {
+                if (!this.filter.locale || this.filter.locale === 'en') {
                     return 'default';
                 }
 
-                return require(`flatpickr/dist/l10n/${locale}.js`).default[locale];
+                return require(`flatpickr/dist/l10n/${this.filter.locale}.js`).default[this.filter.locale];
             },
 
             maxDate: function () {
@@ -154,7 +148,7 @@
             },
 
             time24hr: function () {
-                return this.filter.time24hr !== undefined ? this.filter.time24hr : true;
+                return this.filter.time24hr !== undefined ? this.filter.time24hr : false;
             },
 
             weekNumbers: function () {

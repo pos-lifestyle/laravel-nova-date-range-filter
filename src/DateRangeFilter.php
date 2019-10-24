@@ -26,7 +26,7 @@ class DateRangeFilter extends Filter
      */
     protected $column;
 
-    public function __construct(string $name, string $column = 'created_at', array $config = [])
+    public function __construct(string $name = 'Created at', string $column = 'created_at', array $config = [])
     {
         $this->name = $name;
         $this->column = $column;
@@ -56,8 +56,6 @@ class DateRangeFilter extends Filter
 
     protected function configure(array $config): void
     {
-        $this->withMeta([Config::LOCALE => config('app.locale')]);
-
         if (empty($config)) {
             return;
         }

@@ -91,7 +91,12 @@
                     dateFormat: this.dateFormat,
                     enableTime: this.enableTime,
                     enableSeconds: this.enableSeconds,
-                    locale: this.locale,
+                    locale: this.locale === 'default'
+                        ? {
+                            firstDayOfWeek: this.firstDayOfWeek,
+                            time_24hr: this.time24hr,
+                        }
+                        : this.locale,
                     maxDate: this.maxDate,
                     minDate: this.minDate,
                     mode: 'range',

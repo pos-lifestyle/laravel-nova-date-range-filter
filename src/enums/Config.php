@@ -31,6 +31,7 @@ class Config
             self::ENABLE_TIME,
             self::ENABLE_SECONDS,
             self::FIRST_DAY_OF_WEEK,
+            self::LOCALE,
             self::MAX_DATE,
             self::MIN_DATE,
             self::PLACEHOLDER,
