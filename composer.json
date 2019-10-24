@@ -9,6 +9,13 @@
         "filter"
     ],
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan Hähne",
+            "email": "jan.haehne@pos-lifestyle.de",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^7.1",
         "laravel/framework": "^5.8|6.*",
