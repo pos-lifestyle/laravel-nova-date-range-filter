@@ -16,6 +16,9 @@
             "role": "Developer"
         }
     ],
+    "support": {
+        "issues": "https://github.com/pos-lifestyle/laravel-nova-date-range-filter/issues"
+    },
     "require": {
         "php": "^7.1",
         "laravel/framework": "^5.8|6.*",
