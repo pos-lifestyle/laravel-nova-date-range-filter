@@ -88,7 +88,7 @@ All available settings are provided by the included `Config` enum. See the full 
         <td>String</td>
         <td>
             A string of characters which are used to define how the date will be displayed in the input box.
-            The supported characters are defined in [this table](https://flatpickr.js.org/formatting).
+            The supported characters are defined in <a href="https://flatpickr.js.org/formatting">this table</a>.
         </td>
         <td>"Y-m-d"</td>
     </tr>
@@ -124,7 +124,7 @@ All available settings are provided by the included `Config` enum. See the full 
         <td>String</td>
         <td>
             Localizes the filter.
-            Available locales can be found [here](https://github.com/flatpickr/flatpickr/tree/master/src/l10n).
+            Available locales can be found <a href="https://github.com/flatpickr/flatpickr/tree/master/src/l10n">here</a>.
         </td>
         <td>"default"</td>
     </tr>
