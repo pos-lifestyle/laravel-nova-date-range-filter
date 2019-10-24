@@ -5,7 +5,7 @@
         "laravel",
         "nova",
         "date",
-        "date range",
+        "range",
         "filter"
     ],
     "license": "MIT",
