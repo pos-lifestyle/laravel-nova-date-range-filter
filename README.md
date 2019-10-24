@@ -144,7 +144,7 @@ All available settings are provided by the included `Config` enum. See the full 
         <td>PLACEHOLDER</td>
         <td>String</td>
         <td>The text that is shown in the empty input box.</td>
-        <td style="white-space: nowrap;">__('Choose date range')</td>
+        <td>__('Choose&nbsp;date&nbsp;range')</td>
     </tr>
     <tr>
         <td>SHORTHAND_CURRENT_MONTH</td>
