@@ -19,10 +19,16 @@
     "support": {
         "issues": "https://github.com/pos-lifestyle/laravel-nova-date-range-filter/issues"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "require": {
         "php": "^7.1",
-        "laravel/framework": "^5.8 || 6.*",
-        "laravel/nova": "2.*"
+        "laravel/framework": "^5.8 || ^6.0",
+        "laravel/nova": "^2.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
