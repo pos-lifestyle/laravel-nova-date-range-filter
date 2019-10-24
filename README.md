@@ -18,13 +18,17 @@ composer require pos-lifestyle/laravel-nova-date-range-filter
 Simply add this filter to the `filters` method in your Nova resource.
 
 ```php
+use Illuminate\Http\Request;
 use PosLifestyle\DateRangeFilter\DateRangeFilter;
 
-public function filters(Request $request): array
+class CustomResource extends Resource
 {
-    return [
-        new DateRangeFilter(),
-    ];
+    public function filters(Request $request): array
+    {
+        return [
+            new DateRangeFilter(),
+        ];
+    }
 }
 ```
 
