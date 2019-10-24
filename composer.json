@@ -1,6 +1,6 @@
 {
     "name": "pos-lifestyle/laravel-nova-date-range-filter",
-    "description": "A Laravel Nova filter.",
+    "description": "A Laravel Nova date range filter.",
     "keywords": [
         "laravel",
         "nova",
