@@ -3,6 +3,7 @@
 /vendor
 .DS_Store
 .phpunit.result.cache
+auth.json
 composer.phar
 composer.lock
 package-lock.json
