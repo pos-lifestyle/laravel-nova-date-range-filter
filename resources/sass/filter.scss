@@ -16,10 +16,6 @@
     width: $reset-button-width;
     opacity: 0;
     transition: opacity 0.4s;
-
-    &.hidden {
-      display: none;
-    }
   }
 
   &:hover .reset-button {

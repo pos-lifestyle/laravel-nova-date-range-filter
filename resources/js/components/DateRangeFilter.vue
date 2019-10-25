@@ -31,8 +31,8 @@
                 />
 
                 <button
+                    v-show="this.filter.currentValue"
                     class="reset-button btn btn-sm fa fa-times"
-                    :class="{ 'hidden': !this.filter.currentValue }"
                     @click="resetFilter"
                 ></button>
             </div>
