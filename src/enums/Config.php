@@ -22,7 +22,7 @@ class Config
     /**
      * @return string[]
      */
-    public static function properties(): array
+    public static function getProperties(): array
     {
         return [
             self::ALLOW_INPUT,

@@ -61,7 +61,7 @@ class DateRangeFilter extends Filter
         }
 
         foreach ($config as $property => $value) {
-            if (!in_array($property, Config::properties(), true)) {
+            if (!in_array($property, Config::getProperties(), true)) {
                 throw new InvalidArgumentException('Invalid property: ' . $property);
             }
 
