@@ -48,6 +48,7 @@
         components: {
             DateRangePicker,
         },
+
         props: {
             resourceName: {
                 type: String,
