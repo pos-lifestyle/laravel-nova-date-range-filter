@@ -42,8 +42,12 @@
 
 <script>
     import flatpickr from 'flatpickr';
+    import DateRangePicker from './DateRangePicker';
 
     export default {
+        components: {
+            DateRangePicker,
+        },
         props: {
             resourceName: {
                 type: String,
