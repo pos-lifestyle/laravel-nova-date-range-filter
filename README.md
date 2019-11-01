@@ -1,5 +1,8 @@
 # Laravel Nova Date Range Filter
 
+![Packagist](https://img.shields.io/packagist/l/pos-lifestyle/laravel-nova-date-range-filter)
+![Packagist Version](https://img.shields.io/packagist/v/pos-lifestyle/laravel-nova-date-range-filter)
+
 ## About
 
 This is a configurable and ready to use filter for Laravel Nova 2 based on Nova's own date filter that displays a
