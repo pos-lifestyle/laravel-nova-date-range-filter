@@ -207,3 +207,16 @@ class CustomResource extends Resource
     }
 }
 ```
+
+## Screenshots
+
+<table>
+    <tr>
+        <td><strong>Default configuration</strong></td>
+        <td><strong>Showing 2 months</strong></td>
+    </tr>
+    <tr>
+        <td><img src="docs/assets/img/date-range-filter-default.png" alt="Date range filter (default)"></td>
+        <td><img src="docs/assets/img/date-range-filter-2-months.png" alt="Date range filter (2 months)"></td>
+    </tr>
+</table>
