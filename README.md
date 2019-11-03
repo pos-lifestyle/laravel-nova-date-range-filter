@@ -59,7 +59,7 @@ The filter takes up to three arguments to customize it to your needs.
         <td>Column</td>
         <td>String</td>
         <td>The name of the database column on which the selected date range should be applied to.</td>
-        <td>"created_at"</td>
+        <td>Illuminate\Database\Eloquent\Model::CREATED_AT</td>
     </tr>
     <tr>
         <td>Settings</td>

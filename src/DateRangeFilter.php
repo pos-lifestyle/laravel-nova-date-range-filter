@@ -4,6 +4,7 @@ namespace PosLifestyle\DateRangeFilter;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use InvalidArgumentException;
 use Laravel\Nova\Filters\Filter;
@@ -26,7 +27,7 @@ class DateRangeFilter extends Filter
      */
     protected $column;
 
-    public function __construct(string $name = 'Created at', string $column = 'created_at', array $config = [])
+    public function __construct(string $name = 'Created at', string $column = Model::CREATED_AT, array $config = [])
     {
         $this->name = $name;
         $this->column = $column;
