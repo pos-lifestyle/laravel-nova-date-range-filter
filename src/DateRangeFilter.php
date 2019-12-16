@@ -27,12 +27,18 @@ class DateRangeFilter extends Filter
      */
     protected $column;
 
+    /**
+     * @var array
+     */
+    protected $config;
+
     public function __construct(string $name = 'Created at', string $column = Model::CREATED_AT, array $config = [])
     {
         $this->name = $name;
         $this->column = $column;
+        $this->config = $config;
 
-        $this->configure($config);
+        $this->configure();
     }
 
     /**
@@ -55,13 +61,13 @@ class DateRangeFilter extends Filter
         return $query;
     }
 
-    protected function configure(array $config): void
+    protected function configure(): void
     {
-        if (empty($config)) {
+        if (empty($this->config)) {
             return;
         }
 
-        foreach ($config as $property => $value) {
+        foreach ($this->config as $property => $value) {
             if (!in_array($property, Config::getProperties(), true)) {
                 throw new InvalidArgumentException('Invalid property: ' . $property);
             }
@@ -78,5 +84,15 @@ class DateRangeFilter extends Filter
     public function key(): string
     {
         return parent::key() . '_' . $this->column;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function default()
+    {
+        return array_key_exists(Config::DEFAULT_DATE, $this->config)
+            ? $this->config[Config::DEFAULT_DATE]
+            : [];
     }
 }

@@ -15,6 +15,7 @@
                     :value="value"
                     :allow-input="allowInput"
                     :date-format="dateFormat"
+                    :default-date="defaultDate"
                     :enable-time="enableTime"
                     :enable-seconds="enableSeconds"
                     :locale="locale"
@@ -42,6 +43,7 @@
 
 <script>
     import flatpickr from 'flatpickr';
+    import moment from 'moment';
     import DateRangePicker from './DateRangePicker';
 
     export default {
@@ -117,6 +119,16 @@
 
             dateFormat: function () {
                 return this.filter.dateFormat || 'Y-m-d';
+            },
+
+            defaultDate: function () {
+                if (Array.isArray(this.filter.defaultDate) && this.filter.defaultDate.length === 2) {
+                    return this.filter.defaultDate.map(
+                        (value) => moment(value).startOf('day').format('YYYY-MM-DD[T]HH:mm:ss[Z]'),
+                    );
+                }
+
+                return null;
             },
 
             enableTime: function () {
