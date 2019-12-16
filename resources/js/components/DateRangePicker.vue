@@ -12,6 +12,7 @@
 <script>
     import flatpickr from 'flatpickr';
     import 'flatpickr/dist/themes/airbnb.css';
+    import moment from 'moment';
 
     export default {
         props: {
