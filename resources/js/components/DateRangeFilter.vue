@@ -70,9 +70,13 @@
 
         methods: {
             handleChange: function (value) {
+                if (Array.isArray(value) && value.length === 2) {
+                    value = value.map((value) => moment(value).format('YYYY-MM-DD'));
+                }
+
                 this.$store.commit(`${this.resourceName}/updateFilterState`, {
                     filterClass: this.filterKey,
-                    value: value.length ? value : '',
+                    value: Array.isArray(value) && value.length === 2 ? value : '',
                 });
 
                 this.$emit('change');
