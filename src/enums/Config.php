@@ -6,6 +6,7 @@ class Config
 {
     public const ALLOW_INPUT = 'allowInput';
     public const DATE_FORMAT = 'dateFormat';
+    public const DEFAULT_DATE = 'defaultDate';
     public const DISABLED = 'disabled';
     public const ENABLE_TIME = 'enableTime';
     public const ENABLE_SECONDS = 'enableSeconds';
@@ -27,6 +28,7 @@ class Config
         return [
             self::ALLOW_INPUT,
             self::DATE_FORMAT,
+            self::DEFAULT_DATE,
             self::DISABLED,
             self::ENABLE_TIME,
             self::ENABLE_SECONDS,

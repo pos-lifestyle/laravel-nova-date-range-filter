@@ -96,6 +96,15 @@ All available settings are provided by the included `Config` enum. See the full 
         <td>"Y-m-d"</td>
     </tr>
     <tr>
+        <td>DEFAULT_DATE</td>
+        <td>Array</td>
+        <td>
+            Sets the initial selected dates.<br><br>
+            Supply an array of date strings which follow the format <code>Y-m-d</code>.
+        </td>
+        <td>null</td>
+    </tr>
+    <tr>
         <td>DISABLED</td>
         <td>Boolean</td>
         <td>Entirely disables the filter.</td>

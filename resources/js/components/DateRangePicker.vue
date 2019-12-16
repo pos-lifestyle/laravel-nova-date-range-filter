@@ -36,6 +36,10 @@
                 type: String,
                 default: 'Y-m-d',
             },
+            defaultDate: {
+                type: String,
+                default: null,
+            },
             enableTime: {
                 type: Boolean,
                 default: false,
@@ -89,6 +93,7 @@
                 this.flatpickr = flatpickr(this.$refs.dateRangePicker, {
                     allowInput: this.allowInput,
                     dateFormat: this.dateFormat,
+                    defaultDate: this.defaultDate,
                     enableTime: this.enableTime,
                     enableSeconds: this.enableSeconds,
                     locale: this.locale === 'default'
