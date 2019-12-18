@@ -31,7 +31,7 @@
                 />
 
                 <button
-                    v-show="this.filter.currentValue"
+                    v-show="isValidCurrentValue"
                     class="reset-button btn btn-sm fa fa-times"
                     @click="resetFilter"
                 ></button>
@@ -74,7 +74,7 @@
 
                 this.$store.commit(`${this.resourceName}/updateFilterState`, {
                     filterClass: this.filterKey,
-                    value: Array.isArray(value) && value.length === 2 ? value : '',
+                    value: Array.isArray(value) && value.length === 2 ? value : [],
                 });
 
                 this.$emit('change');
@@ -84,13 +84,17 @@
                 const flatpickrConfig = this.$refs.dateRangePickerComponent.getFlatpickrConfig();
                 const rangeSeparator = flatpickrConfig.locale.rangeSeparator || 'to';
 
-                if (!Array.isArray(this.filter.currentValue) || this.filter.currentValue.length !== 2) {
+                if (!this.isValidCurrentValue) {
                     return;
                 }
 
                 this.displayValue = this.filter.currentValue
                     .map((value) => flatpickr.formatDate(flatpickr.parseDate(value), this.dateFormat))
                     .join(` ${rangeSeparator} `);
+            },
+
+            isValidCurrentValue: function () {
+                return Array.isArray(this.filter.currentValue) && this.filter.currentValue.length === 2
             },
 
             resetFilter: function () {
