@@ -12,7 +12,6 @@
 <script>
     import flatpickr from 'flatpickr';
     import 'flatpickr/dist/themes/airbnb.css';
-    import moment from 'moment';
 
     export default {
         props: {
@@ -36,10 +35,6 @@
             dateFormat: {
                 type: String,
                 default: 'Y-m-d',
-            },
-            defaultDate: {
-                type: String,
-                default: null,
             },
             enableTime: {
                 type: Boolean,
@@ -94,7 +89,6 @@
                 this.flatpickr = flatpickr(this.$refs.dateRangePicker, {
                     allowInput: this.allowInput,
                     dateFormat: this.dateFormat,
-                    defaultDate: this.defaultDate,
                     enableTime: this.enableTime,
                     enableSeconds: this.enableSeconds,
                     locale: this.locale === 'default'
