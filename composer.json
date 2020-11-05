@@ -28,8 +28,8 @@
     ],
     "require": {
         "php": "^7.1",
-        "laravel/framework": "^5.8 || ^6.0",
-        "laravel/nova": "^2.0"
+        "laravel/framework": "^5.8 || ^6.0 || ^7.0",
+        "laravel/nova": "^2.0 || ^3.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
