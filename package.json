@@ -16,7 +16,7 @@
         "moment": "^2.22.2"
     },
     "dependencies": {
-        "font-awesome": "^4.7.0",
+        "@vue-hero-icons/solid": "^1.7.2",
         "vue": "^2.5.0"
     }
 }
