@@ -9,8 +9,8 @@
 </template>
 
 <script>
-    import flatpickr from 'flatpickr'
-    import 'flatpickr/dist/themes/airbnb.css'
+    import flatpickr from 'flatpickr';
+    import 'flatpickr/dist/themes/airbnb.css';
 
     export default {
         props: {
@@ -21,7 +21,7 @@
             placeholder: {
                 type: String,
                 default: () => {
-                    return moment().format('YYYY-MM-DD')
+                    return moment().format('YYYY-MM-DD');
                 },
             },
             value: {
@@ -80,7 +80,7 @@
         data: function () {
             return {
                 flatpickr: null,
-            }
+            };
         },
 
         mounted: function () {
@@ -104,34 +104,34 @@
                     time_24hr: this.time24hr,
                     weekNumbers: this.weekNumbers,
                     onChange: this.onChange,
-                })
+                });
 
-                this.$emit('ready', true)
-            })
+                this.$emit('ready', true);
+            });
         },
 
         beforeDestroy: function () {
-            this.flatpickr.destroy()
+            this.flatpickr.destroy();
         },
 
         methods: {
             onChange: function (selectedDates) {
                 if (selectedDates.length === 1) {
-                    return
+                    return;
                 }
 
-                this.$emit('change', selectedDates)
+                this.$emit('change', selectedDates);
             },
 
             getFlatpickrConfig: function () {
-                return this.flatpickr.config
+                return this.flatpickr.config;
             },
 
             clear: function () {
-                this.flatpickr.clear()
+                this.flatpickr.clear();
             },
         },
-    }
+    };
 </script>
 
 <style scoped>

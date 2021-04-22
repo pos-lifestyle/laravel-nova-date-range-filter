@@ -43,8 +43,8 @@
 </template>
 
 <script>
-    import flatpickr from 'flatpickr'
-    import DateRangePicker from './DateRangePicker'
+    import flatpickr from 'flatpickr';
+    import DateRangePicker from './DateRangePicker';
 
     export default {
         components: {
@@ -65,7 +65,7 @@
         data: function () {
             return {
                 displayValue: '',
-            }
+            };
         },
 
         created () {
@@ -76,9 +76,9 @@
              */
             this.$store.subscribeAction((action, state) => {
                 if (action.type === `${this.resourceName}/resetFilterState`) {
-                    this.resetFilter()
+                    this.resetFilter();
                 }
-            })
+            });
         },
 
         methods: {
@@ -91,107 +91,107 @@
                  */
                 value = Array.isArray(value) && value.length === 2
                     ? value.map((value) => moment(value).format('YYYY-MM-DD'))
-                    : []
+                    : [];
 
                 this.$store.commit(`${this.resourceName}/updateFilterState`, {
                     filterClass: this.filterKey,
                     value: value,
-                })
+                });
 
-                this.$emit('change')
+                this.$emit('change');
             },
 
             setDisplayValue: function () {
-                const flatpickrConfig = this.$refs.dateRangePickerComponent.getFlatpickrConfig()
-                const rangeSeparator = flatpickrConfig.locale.rangeSeparator || 'to'
+                const flatpickrConfig = this.$refs.dateRangePickerComponent.getFlatpickrConfig();
+                const rangeSeparator = flatpickrConfig.locale.rangeSeparator || 'to';
 
                 if (!this.isValidCurrentValue) {
-                    return
+                    return;
                 }
 
                 this.displayValue = this.filter.currentValue
                     .map((value) => flatpickr.formatDate(flatpickr.parseDate(value), this.dateFormat))
-                    .join(` ${rangeSeparator} `)
+                    .join(` ${rangeSeparator} `);
             },
 
             isValidCurrentValue: function () {
-                return Array.isArray(this.filter.currentValue) && this.filter.currentValue.length === 2
+                return Array.isArray(this.filter.currentValue) && this.filter.currentValue.length === 2;
             },
 
             resetFilter: function () {
-                this.$refs.dateRangePickerComponent.clear()
+                this.$refs.dateRangePickerComponent.clear();
             },
         },
 
         computed: {
             filter: function () {
-                return this.$store.getters[`${this.resourceName}/getFilter`](this.filterKey)
+                return this.$store.getters[`${this.resourceName}/getFilter`](this.filterKey);
             },
 
             disabled: function () {
-                return this.filter.disabled !== undefined ? this.filter.disabled : false
+                return this.filter.disabled !== undefined ? this.filter.disabled : false;
             },
 
             placeholder: function () {
-                return this.filter.placeholder || this.__('Choose date range')
+                return this.filter.placeholder || this.__('Choose date range');
             },
 
             value: function () {
-                return this.displayValue
+                return this.displayValue;
             },
 
             allowInput: function () {
-                return this.filter.allowInput !== undefined ? this.filter.allowInput : false
+                return this.filter.allowInput !== undefined ? this.filter.allowInput : false;
             },
 
             dateFormat: function () {
-                return this.filter.dateFormat || 'Y-m-d'
+                return this.filter.dateFormat || 'Y-m-d';
             },
 
             enableTime: function () {
-                return this.filter.enableTime !== undefined ? this.filter.enableTime : false
+                return this.filter.enableTime !== undefined ? this.filter.enableTime : false;
             },
 
             enableSeconds: function () {
-                return this.filter.enableSeconds !== undefined ? this.filter.enableSeconds : false
+                return this.filter.enableSeconds !== undefined ? this.filter.enableSeconds : false;
             },
 
             locale: function () {
                 // There is no english language file.
                 if (!this.filter.locale || this.filter.locale === 'en') {
-                    return 'default'
+                    return 'default';
                 }
 
-                return require(`flatpickr/dist/l10n/${this.filter.locale}.js`).default[this.filter.locale]
+                return require(`flatpickr/dist/l10n/${this.filter.locale}.js`).default[this.filter.locale];
             },
 
             maxDate: function () {
-                return this.filter.maxDate || null
+                return this.filter.maxDate || null;
             },
 
             minDate: function () {
-                return this.filter.minDate || null
+                return this.filter.minDate || null;
             },
 
             shorthandCurrentMonth: function () {
-                return this.filter.shorthandCurrentMonth !== undefined ? this.filter.shorthandCurrentMonth : false
+                return this.filter.shorthandCurrentMonth !== undefined ? this.filter.shorthandCurrentMonth : false;
             },
 
             showMonths: function () {
-                return this.filter.showMonths || 1
+                return this.filter.showMonths || 1;
             },
 
             time24hr: function () {
-                return this.filter.time24hr !== undefined ? this.filter.time24hr : false
+                return this.filter.time24hr !== undefined ? this.filter.time24hr : false;
             },
 
             weekNumbers: function () {
-                return this.filter.weekNumbers !== undefined ? this.filter.weekNumbers : false
+                return this.filter.weekNumbers !== undefined ? this.filter.weekNumbers : false;
             },
 
             firstDayOfWeek: function () {
-                return this.filter.firstDayOfWeek || 0
+                return this.filter.firstDayOfWeek || 0;
             },
         },
-    }
+    };
 </script>
