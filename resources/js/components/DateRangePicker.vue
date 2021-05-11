@@ -3,7 +3,6 @@
         type="text"
         ref="dateRangePicker"
         :disabled="disabled"
-        :class="{ '!cursor-not-allowed': disabled }"
         :placeholder="placeholder"
         :value="value"
     />
@@ -136,7 +135,8 @@
 </script>
 
 <style scoped>
-    .\!cursor-not-allowed {
-        cursor: not-allowed !important;
-    }
+    /* 'cursor: not-allowed' removed because the result is misleading -
+     * when hovering the input field, the not-allowed cursor suggests
+     * the field is not clickable, but you can still click it.
+     */
 </style>

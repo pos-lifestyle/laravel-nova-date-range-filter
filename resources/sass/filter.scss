@@ -1,5 +1,3 @@
-@import "~font-awesome/scss/font-awesome";
-
 .date-range-filter .input-wrapper {
   $reset-button-width: 2rem !default;
 
@@ -16,6 +14,12 @@
     width: $reset-button-width;
     opacity: 0;
     transition: opacity 0.4s;
+  }
+
+  .reset-icon {
+    width: 18px;
+    height: 18px;
+    color: #9d9d9d;
   }
 
   &:hover .reset-button {

@@ -32,9 +32,11 @@
 
                 <button
                     v-show="isValidCurrentValue"
-                    class="reset-button btn btn-sm fa fa-times"
+                    class="reset-button btn btn-sm focus:outline-none flex justify-center items-center"
                     @click="resetFilter"
-                ></button>
+                >
+                    <XIcon class="reset-icon"/>
+                </button>
             </div>
         </div>
     </div>
@@ -66,15 +68,34 @@
             };
         },
 
+        created () {
+            /*
+             * Clear the displayed value when clicking 'Reset Filters'
+             * to reset all applied filters. Without this, the filter is
+             * removed, but the input value remains, which is confusing.
+             */
+            this.$store.subscribeAction((action, state) => {
+                if (action.type === `${this.resourceName}/resetFilterState`) {
+                    this.resetFilter();
+                }
+            });
+        },
+
         methods: {
             handleChange: function (value) {
-                if (Array.isArray(value) && value.length === 2) {
-                    value = value.map((value) => moment(value).format('YYYY-MM-DD'));
-                }
+                /*
+                 * Remove repetition and provide empty value when clear button is pressed.
+                 * This tells Nova that the filter is no longer enabled, changing the filter
+                 * icon colour from blue to regular colour. Without this fix, you can press
+                 * the clear button, but the filter icon still looks as if a filter is applied.
+                 */
+                value = Array.isArray(value) && value.length === 2
+                    ? value.map((value) => moment(value).format('YYYY-MM-DD'))
+                    : [];
 
                 this.$store.commit(`${this.resourceName}/updateFilterState`, {
                     filterClass: this.filterKey,
-                    value: Array.isArray(value) && value.length === 2 ? value : [],
+                    value: value,
                 });
 
                 this.$emit('change');
@@ -94,7 +115,7 @@
             },
 
             isValidCurrentValue: function () {
-                return Array.isArray(this.filter.currentValue) && this.filter.currentValue.length === 2
+                return Array.isArray(this.filter.currentValue) && this.filter.currentValue.length === 2;
             },
 
             resetFilter: function () {
