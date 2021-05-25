@@ -11,12 +11,11 @@
     },
     "devDependencies": {
         "cross-env": "^5.0.0",
-        "flatpickr": "^4.4.4",
+        "flatpickr": "4.6.7",
         "laravel-mix": "^1.0",
         "moment": "^2.22.2"
     },
     "dependencies": {
-        "@vue-hero-icons/solid": "^1.7.2",
         "vue": "^2.5.0"
     }
 }

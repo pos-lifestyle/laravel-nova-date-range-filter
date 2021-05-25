@@ -106,7 +106,7 @@
                     onChange: this.onChange,
                 });
 
-                this.$emit('ready', true);
+                this.$emit('ready', this.flatpickr);
             });
         },
 
