@@ -32,10 +32,10 @@
 
                 <button
                     v-show="isValidCurrentValue"
-                    class="reset-button btn btn-sm focus:outline-none flex justify-center items-center"
+                    class="reset-button btn btn-sm focus:outline-none flex justify-center items-center text-80"
                     @click="resetFilter"
                 >
-                    <XIcon class="reset-icon"/>
+                    <icon type="x-circle" view-box="0 0 22 22" width="20" height="20" />
                 </button>
             </div>
         </div>
