@@ -50,13 +50,29 @@ class DateRangeFilter extends Filter
      */
     public function apply(Request $request, $query, $value)
     {
-        $query->whereBetween(
-            $this->column,
-            [
-                Carbon::createFromFormat('Y-m-d', $value[0])->startOfDay(),
-                Carbon::createFromFormat('Y-m-d', $value[1])->endOfDay(),
-            ]
-        );
+        $hasRelation = strpos($this->column,'.');
+        if ($hasRelation) {
+            $rc = explode(".",$this->column);
+            $relation = $rc[0];
+            $column = $rc[1];
+            $query->whereHas($relation, function (Builder $query) use ($value, $column) {
+                $query->whereBetween(
+                    $column,
+                    [
+                        Carbon::createFromFormat('Y-m-d', $value[0])->startOfDay(),
+                        Carbon::createFromFormat('Y-m-d', $value[1])->endOfDay(),
+                    ]
+                );
+            });
+        } else {
+            $query->whereBetween(
+                $this->column,
+                [
+                    Carbon::createFromFormat('Y-m-d', $value[0])->startOfDay(),
+                    Carbon::createFromFormat('Y-m-d', $value[1])->endOfDay(),
+                ]
+            );
+        }
 
         return $query;
     }
