@@ -53,8 +53,8 @@ class DateRangeFilter extends Filter
         $query->whereBetween(
             $this->column,
             [
-                Carbon::createFromFormat('Y-m-d', $value[0])->startOfDay(),
-                Carbon::createFromFormat('Y-m-d', $value[1])->endOfDay(),
+                $value[0],
+                $value[1],
             ]
         );
 
@@ -71,7 +71,10 @@ class DateRangeFilter extends Filter
             if (!in_array($property, Config::getProperties(), true)) {
                 throw new InvalidArgumentException('Invalid property: ' . $property);
             }
-
+            if ($property == 'dateFormat') {
+                $jsDateFormat = $this->convertPHPToMomentFormat($value);
+                $this->withMeta(['jsDateFormat' => $jsDateFormat]);
+            }
             $this->withMeta([$property => $value]);
         }
     }
@@ -94,5 +97,50 @@ class DateRangeFilter extends Filter
         return array_key_exists(Config::DEFAULT_DATE, $this->config)
             ? $this->config[Config::DEFAULT_DATE]
             : [];
+    }
+
+    function convertPHPToMomentFormat($format)
+    {
+        $replacements = [
+            'd' => 'DD',
+            'D' => 'ddd',
+            'j' => 'D',
+            'l' => 'dddd',
+            'N' => 'E',
+            'S' => 'o',
+            'w' => 'e',
+            'z' => 'DDD',
+            'W' => 'W',
+            'F' => 'MMMM',
+            'm' => 'MM',
+            'M' => 'MMM',
+            'n' => 'M',
+            't' => '', // no equivalent
+            'L' => '', // no equivalent
+            'o' => 'YYYY',
+            'Y' => 'YYYY',
+            'y' => 'YY',
+            'a' => 'a',
+            'A' => 'A',
+            'B' => '', // no equivalent
+            'g' => 'h',
+            'G' => 'H',
+            'h' => 'hh',
+            'H' => 'HH',
+            'i' => 'mm',
+            's' => 'ss',
+            'u' => 'SSS',
+            'e' => 'zz', // deprecated since version 1.6.0 of moment.js
+            'I' => '', // no equivalent
+            'O' => '', // no equivalent
+            'P' => '', // no equivalent
+            'T' => '', // no equivalent
+            'Z' => '', // no equivalent
+            'c' => '', // no equivalent
+            'r' => '', // no equivalent
+            'U' => 'X',
+        ];
+        $momentFormat = strtr($format, $replacements);
+        return $momentFormat;
     }
 }

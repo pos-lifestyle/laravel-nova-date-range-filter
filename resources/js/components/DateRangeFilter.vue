@@ -90,7 +90,7 @@
                  * the clear button, but the filter icon still looks as if a filter is applied.
                  */
                 value = Array.isArray(value) && value.length === 2
-                    ? value.map((value) => moment(value).format('YYYY-MM-DD'))
+                    ? value.map((value) => moment(value).format(this.jsDateFormat))
                     : [];
 
                 this.$store.commit(`${this.resourceName}/updateFilterState`, {
@@ -146,6 +146,10 @@
 
             dateFormat: function () {
                 return this.filter.dateFormat || 'Y-m-d';
+            },
+
+            jsDateFormat: function () {
+                return this.filter.jsDateFormat || 'YYYY-MM-DD';
             },
 
             enableTime: function () {
