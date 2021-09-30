@@ -98,7 +98,10 @@ class DateRangeFilter extends Filter
             ? $this->config[Config::DEFAULT_DATE]
             : [];
     }
-
+    
+    /* Below function made by Rene Vorndran at May 12 2015
+     * Source: https://stackoverflow.com/questions/30186611/php-dateformat-to-moment-js-format/30192680#30192680
+     */
     function convertPHPToMomentFormat($format)
     {
         $replacements = [
