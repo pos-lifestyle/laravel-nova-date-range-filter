@@ -53,8 +53,8 @@ class DateRangeFilter extends Filter
         $query->whereBetween(
             $this->column,
             [
-                $value[0],
-                $value[1],
+                Carbon::createFromFormat($this->meta['dateFormat'], $value[0]),
+                Carbon::createFromFormat($this->meta['dateFormat'], $value[1]),
             ]
         );
 
