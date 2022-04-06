@@ -11,13 +11,11 @@
     },
     "devDependencies": {
         "@vue/compiler-sfc": "^3.2.22",
-        "flatpickr": "^4.6.11",
         "laravel-mix": "^6.0.41",
-        "moment": "^2.29",
         "postcss": "^8.3.11",
-        "resolve-url-loader": "^5.0.0",
-        "sass": "^1.49.11",
-        "sass-loader": "^12.6.0",
-        "vue-loader": "^16.8.3"
-    }
+        "vue-loader": "^16.8.3",
+        "moment": "^2.29",
+        "flatpickr": "^4.6.11"
+    },
+    "dependencies": { }
 }
