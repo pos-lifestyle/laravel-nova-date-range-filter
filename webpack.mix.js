@@ -1,11 +1,10 @@
-const mix = require('laravel-mix');
+let mix = require('laravel-mix')
+
+require('./mix')
 
 mix
-    .setPublicPath('dist')
-    .js('resources/js/filter.js', 'js')
-    .sass('resources/sass/filter.scss', 'css')
-    .version();
-
-if (mix.inProduction()) {
-    mix.sourceMaps();
-}
+.setPublicPath('dist')
+.js('resources/js/filter.js', 'js')
+.vue({ version: 3 })
+.css('resources/css/filter.css', 'css')
+.nova('pos-lifestyle/laravel-nova-date-range-filter')
