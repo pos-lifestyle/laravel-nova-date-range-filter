@@ -1,3 +1,5 @@
-Nova.booting((Vue, router, store) => {
-    Vue.component('date-range-filter', require('./components/DateRangeFilter'));
-});
+import DateRangeFilter from './components/DateRangeFilter'
+
+Nova.booting((app, store) => {
+    app.component('date-range-filter', DateRangeFilter)
+})
