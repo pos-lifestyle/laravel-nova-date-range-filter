@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace PosLifestyle\DateRangeFilter;
 
@@ -8,14 +8,26 @@ use Laravel\Nova\Nova;
 
 class FilterServiceProvider extends ServiceProvider
 {
-    protected const JS_FILE = __DIR__ . '/../dist/js/filter.js';
-    protected const CSS_FILE = __DIR__ . '/../dist/css/filter.css';
-
-    public function boot(): void
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
     {
-        Nova::serving(static function () {
-            Nova::script('date-range-filter', self::JS_FILE);
-            Nova::style('date-range-filter', self::CSS_FILE);
+        Nova::serving(function (ServingNova $event) {
+            Nova::script('date-range-filter', __DIR__.'/../dist/js/filter.js');
+            Nova::style('date-range-filter', __DIR__.'/../dist/css/filter.css');
         });
+    }
+    
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
     }
 }
